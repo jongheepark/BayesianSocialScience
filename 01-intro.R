@@ -13,7 +13,7 @@ library(readxl)
 download.file("http://gapm.io/dl_pop", destfile = "pop1800_2100.xlsx")
 
 ## 다운로드된 xlsx 파일에서 두 번째 시트를 선택해서 불러오기
-world_pop = read_xlsx("data/pop1800_2100.xlsx", sheet = 2)
+world_pop = read_xlsx("pop1800_2100.xlsx", sheet = 2)
 
 
 ## ----echo=TRUE-----------------------------------------------------------------
