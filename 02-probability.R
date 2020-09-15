@@ -30,15 +30,30 @@ Sys.time() - start_time
 
 
 ## ----echo=TRUE-----------------------------------------------------------------
-birthday.simulator <- function(n, total.sim = 100){
-  probs <- c(rep(1/365.25,365),(97/400)/365.25)
+## textbook 윤년 수정 1: leap year correction
+birthday.simulator <- function(n, total.sim = 1000000){
+probs <- c(rep(1/365.25,365),(97/400)/365.25)
   anyduplicated <- function(ignored) 
     any(duplicated(sample(1:366, n, prob=probs, replace=TRUE)))
   out <- sum(sapply(seq(total.sim), anyduplicated))/total.sim
   return(out)
 }
+
 birthday.simulator(20)
-birthday.simulator2 <- function(n, total.sim = 100){
+
+## revised 윤년 수정 2: leap year computing using Gregorius correction
+birthday.simulator.gregorius<- function(n, total.sim = 1000000){
+  one.year <- 365+97/400
+  probs <- c(rep(1/one.year,365),(97/400)/one.year)
+  anyduplicated <- function(ignored) 
+    any(duplicated(sample(1:366, n, prob=probs, replace=TRUE)))
+  out <- sum(sapply(seq(total.sim), anyduplicated))/total.sim
+  return(out)
+}
+birthday.simulator.gregorius(20)
+
+## numerical birthday prob calculator 
+birthday.simulator2 <- function(n, total.sim = 1000000){
   probs <- c(rep(1/365, 365))
   anyduplicated <- function(ignored) 
     any(duplicated(sample(1:365, n, prob=probs, replace=TRUE)))
