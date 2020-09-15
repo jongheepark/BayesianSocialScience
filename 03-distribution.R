@@ -251,33 +251,33 @@ grid <- interp.new(x,y,density,duplicate="strip",linear=FALSE,
                    yo=seq(min(y),max(y),length=100))
 
 # PLOT #1: a heatmap 
-image2D(x=grid$x, y=grid$y, z=grid$z)
-
+image2D(x=grid$x, y=grid$y, z=grid$z, xlab="", ylab="")
 
 ## ----tdist, message=FALSE, warning=FALSE, fig.cap="스튜던트  t 분포", echo=TRUE, fig.align="center", fig.asp = 0.8, fig.fullwidth=TRUE----
 addTrans <- NetworkChange:::addTrans
-curve(dt(x, df = 1), lwd =1, xlim=c(-6,6), ylim=c(0, .45), 
-      ylab="밀도", xlab="Y", col=1)
+# PLOT #1: a heatmap 
+ curve(dt(x, df = 1), lwd =1, xlim=c(-6,6), ylim=c(0, .45), 
+      ylab="density", xlab="Y", col=1)
 grid()
 curve(dt(x, df = 5), lwd = 1, add=T, col=2)
 curve(dt(x, df = 10), lwd = 1, add=T, col=3)
 curve(dt(x, df = 30), lwd = 1, add=T, col=4)
 curve(dnorm(x, 0, 1), lwd = 5, add=T, col=addTrans(6, 50))
 legend("topleft", 
-       legend = c('t(0,1,1)', 't(0,1,5)', 't(0,1,10)', 't(0,1,30)', 'N(0, 1)'),
+       legend = c('t(0, not defined, 1)', 't(0,1,5)', 't(0,1,10)', 't(0,1,30)', 'N(0, 1)'),
        lwd=c(1,1,1,1,5), bty="n", col=c(1:4, addTrans(6, 50)))
 
 
 ## ----cauchydist, message=FALSE, warning=FALSE, fig.cap="코시분포", echo=TRUE, fig.align="center", fig.asp = 0.8, fig.fullwidth=TRUE----
 curve(dcauchy(x, scale = 1), lwd =1, xlim=c(-8,8), ylim=c(0, .35), 
-      ylab="밀도", xlab="Y", col=1)
+      ylab="density", xlab="Y", col=1)
 grid()
 curve(dcauchy(x, scale = 2), lwd = 1, add=T, col=2)
 curve(dcauchy(x, scale = 3), lwd = 1, add=T, col=3)
 curve(dcauchy(x, scale = 4), lwd = 1, add=T, col=4)
 curve(dt(x, df = 1), lwd = 5, add=T, col=addTrans(6, 50))
 legend("topleft", 
-       legend = c('Cauchy(0, 1)', 'Cauchy(0, 2)', 'Cauchy(0, 3)', 'Cauchy(0, 4)', 't(0,1,1)'), 
+       legend = c('Cauchy(0, 1)', 'Cauchy(0, 2)', 'Cauchy(0, 3)', 'Cauchy(0, 4)', 't(0, not defined, 1)'), 
        lwd=c(1,1,1,1,5), bty="n", col=c(1:4, addTrans(6, 50)))
 
 
