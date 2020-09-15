@@ -42,6 +42,7 @@ probs <- c(rep(1/365.25,365),(97/400)/365.25)
 birthday.simulator(20)
 
 ## revised 윤년 수정 2: leap year computing using Gregorius correction
+## on "Tue Sep 15 09:28:54 2020"
 birthday.simulator.gregorius<- function(n, total.sim = 1000000){
   one.year <- 365+97/400
   probs <- c(rep(1/one.year,365),(97/400)/one.year)
