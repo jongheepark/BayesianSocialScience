@@ -79,8 +79,12 @@ ggplot(sub, aes(x = year, y=log.pop, group=period, color=period)) +
 
 
 ## ----echo=TRUE-----------------------------------------------------------------
-## 자료 불러오기
-uk_crop = read.csv("data/long-term-cereal-yields-in-the-united-kingdom.csv")
+## 자료 github에서 불러오기
+library (readr)
+urlfile = "https://raw.githubusercontent.com/jongheepark/BayesianSocialScience/master/long-term-cereal-yields-in-the-united-kingdom.csv?token=AATGJDFKO2PW6JMDTV7NCJS7NQVSO"
+uk_crop <-read_csv(url(urlfile))
+## If you download the data in your workind directory, you can import by 
+## uk_crop = read.csv("long-term-cereal-yields-in-the-united-kingdom.csv")
 
 ## 1800년 이후 자료만 따로 저장
 sub_crop <- subset(uk_crop, Year > 1799)
