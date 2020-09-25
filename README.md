@@ -16,8 +16,6 @@
 getwd()
 ```
 
-    ## [1] "/Users/park/Dropbox/STABLE-202006"
-
 ``` r
 ## 필요하면 원하는 위치로 변경: "."을 "where/you/want"로 바꾸면 됨.
 ## setwd(dir = ".")
