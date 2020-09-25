@@ -77,7 +77,7 @@ source("05-regression.R", echo=TRUE)
     ## +     alpha = 0.1, col = "brown") + xlab("부모의 중간 신장") + 
     ## +     ylab("자녀의 신장") + .... [TRUNCATED]
 
-![](Github-tutorial_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
     ## 
     ## R > center <- function(x) {
@@ -143,7 +143,7 @@ source("05-regression.R", echo=TRUE)
     ## R > ggplot(galton.lm, aes(x = parent, y = child)) + geom_smooth(method = "lm", 
     ## +     aes(fill = "confidence"), show.legend = F, alpha = 0.2, col = "n ..." ... [TRUNCATED]
 
-![](Github-tutorial_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
     ## 
     ## R > x <- seq(-3, 3, length = 100)
@@ -151,7 +151,7 @@ source("05-regression.R", echo=TRUE)
     ## R > plot(x, exp(x), col = addTrans("brown", 50), type = "p", 
     ## +     cex = 0.5, pch = 19)
 
-![](Github-tutorial_files/figure-gfm/unnamed-chunk-5-3.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-3.png)<!-- -->
 
     ## 
     ## R > grid()
