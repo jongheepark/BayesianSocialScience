@@ -1,27 +1,25 @@
 ## ----setup, include=FALSE------------------------------------------------------
-library(knitr)
-library(survey)
-library(ggplot2)
-library(ggExtra)
-library(ggthemes)
-library(extrafont)
-library(dplyr)
-library(srvyr)
-library(readxl)
-library(tidyr)
-library(showtext)
-library(scales)
-library(broom)
-library(kableExtra)
-library(lmtest)
-library(summarytools)
-library(apsrtable)
-library(stargazer)
-library(NetworkChange)
-library(tidyverse)
+## First specify the packages of interest
+packages = c("tidyverse", "knitr", "survey", "ggthemes", "extrafont", "dplyr", 
+             "srvyr", "tidyr", "readxl", "showtext", "ggplot2", "ggExtra", 
+            "broom", "kableExtra", "lmtest", "scales", "summarytools", "apsrtable", 
+            "NetworkChange", "MCMCpack", "stargazer")
 
+## Now load or install&load all
+package.check <- lapply(
+  packages,
+  FUN = function(x) {
+    if (!require(x, character.only = TRUE)) {
+      install.packages(x, dependencies = TRUE)
+      library(x, character.only = TRUE)
+    }
+  }
+)
+
+## transparent dots in graph
 addTrans <- NetworkChange:::addTrans
 
+## default R base plot format
 par(mar=c(3,3,2,1), mgp=c(2,.7,0), tck=.02)
 
 ## theme_set(theme_classic())
@@ -29,7 +27,7 @@ knitr::opts_chunk$set(echo=TRUE, out.width="100%", fig.align = "center", message
 Sys.setlocale(category = "LC_CTYPE", locale = "ko_KR.UTF-8")
 theme_set(theme_gray(base_family='NanumGothic'))
 
-## latex summary of regression
+## my style latex summary of regression
 jhp_report <- function(...){
   output <- capture.output(stargazer(..., omit.stat=c("f", "ser")))
   # The first three lines are the ones we want to remove...
@@ -38,7 +36,7 @@ jhp_report <- function(...){
   cat(paste(output, collapse = "\n"), "\n")
 }
 
-## regression summary
+## regression summary plot
 ## The first variable after ~ will be considered as the explanatory var.
 ggReg <- function (fit, title="") {
   gtext <- paste("Call = ", summary(fit)$call[2], "\n",   
@@ -51,7 +49,7 @@ ggReg <- function (fit, title="") {
           theme(plot.title = element_text(size = rel(.8))) 
 }
 
-
+## my style ggplot2 theme
 theme_jhp <- function (base_size = 10, base_family = "sans") 
 {
     colors <- tibble::deframe(ggthemes::ggthemes_data[["fivethirtyeight"]])
