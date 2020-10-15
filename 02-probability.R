@@ -46,8 +46,10 @@ birthday.simulator(20)
 birthday.simulator.gregorius<- function(n, total.sim = 1000000){
   one.year <- 365+97/400
   probs <- c(rep(1/one.year,365),(97/400)/one.year)
-  anyduplicated <- function(ignored) 
+  ## ignored is same as ... (take arguements in the above environment)
+  anyduplicated <- function(ignored){ 
     any(duplicated(sample(1:366, n, prob=probs, replace=TRUE)))
+  }
   out <- sum(sapply(seq(total.sim), anyduplicated))/total.sim
   return(out)
 }
@@ -56,8 +58,9 @@ birthday.simulator.gregorius(20)
 ## numerical birthday prob calculator 
 birthday.simulator2 <- function(n, total.sim = 1000000){
   probs <- c(rep(1/365, 365))
-  anyduplicated <- function(ignored) 
+  anyduplicated <- function(ignored){
     any(duplicated(sample(1:365, n, prob=probs, replace=TRUE)))
+  }
   out <- sum(sapply(seq(total.sim), anyduplicated))/total.sim
   return(out)
 }
