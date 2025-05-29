@@ -1,6 +1,6 @@
 ## ----setup, include=FALSE------------------------------------------------------
 ## First specify the packages of interest
-packages <- c("tidyverse", "knitr", "survey", "ggthemes", "extrafont", "dplyr", 
+packages <- c("tidyverse", "knitr", "survey", "ggthemes", "extrafont", "dplyr", "readxl", 
               "UsingR", "srvyr", "tidyr", "readxl", "showtext", "ggplot2", "ggExtra", 
               "tibble", "broom", "kableExtra", "lmtest", "scales", "DiagrammeR",  
               "NetworkChange", "MCMCpack", "stargazer", "sysfonts")
