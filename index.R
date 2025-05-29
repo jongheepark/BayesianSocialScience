@@ -1,9 +1,9 @@
 ## ----setup, include=FALSE------------------------------------------------------
 ## First specify the packages of interest
-packages = c("tidyverse", "knitr", "survey", "ggthemes", "extrafont", "dplyr", 
-             "srvyr", "tidyr", "readxl", "showtext", "ggplot2", "ggExtra", 
-            "broom", "kableExtra", "lmtest", "scales", "summarytools", "apsrtable", 
-            "NetworkChange", "MCMCpack", "stargazer")
+packages <- c("tidyverse", "knitr", "survey", "ggthemes", "extrafont", "dplyr", 
+              "UsingR", "srvyr", "tidyr", "readxl", "showtext", "ggplot2", "ggExtra", 
+              "tibble", "broom", "kableExtra", "lmtest", "scales", "DiagrammeR",  
+              "NetworkChange", "MCMCpack", "stargazer", "sysfonts")
 
 ## Now load or install&load all
 package.check <- lapply(
@@ -15,6 +15,12 @@ package.check <- lapply(
     }
   }
 )
+
+
+# 한글 폰트 추가 (시스템에 설치된 폰트 사용)
+font_add_google("Noto Sans KR", "noto")  # 구글 폰트 사용
+showtext_auto()
+
 
 ## transparent dots in graph
 addTrans <- NetworkChange:::addTrans
@@ -69,4 +75,3 @@ theme_jhp <- function (base_size = 10, base_family = "sans")
            plot.margin = unit(c(1, 1, 1, 1), "lines"),
            strip.background = element_rect()))
 }
-
