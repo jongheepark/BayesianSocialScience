@@ -3,7 +3,7 @@
 packages <- c("tidyverse", "knitr", "survey", "ggthemes", "extrafont", "dplyr", "readxl", 
               "UsingR", "srvyr", "tidyr", "readxl", "showtext", "ggplot2", "ggExtra", 
               "tibble", "broom", "kableExtra", "lmtest", "scales", "DiagrammeR",  
-              "NetworkChange", "MCMCpack", "stargazer", "sysfonts")
+              "car", "NetworkChange", "MCMCpack", "stargazer", "sysfonts")
 
 ## Now load or install&load all
 package.check <- lapply(
